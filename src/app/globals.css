@@ -1,14 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-  --color-pink-light: #FFE4E8;
-  --color-pink-soft: #FFB6C1;
-  --color-pink-base: #FF69B4;
-  --color-pink-deep: #FF1493;
-  --color-pink-rose: #E91E8C;
-  --color-cream: #FFF5F7;
+  /* Warm neutrals + slate (legacy names kept for Tailwind classes site-wide) */
+  --color-pink-light: #e2e8f0;
+  --color-pink-soft: #64748b;
+  --color-pink-base: #be123c;
+  --color-pink-deep: #0f172a;
+  --color-pink-rose: #334155;
+  --color-cream: #f5f5f4;
 
-  --font-sans: Helvetica, Arial, "Helvetica Neue", ui-sans-serif, sans-serif;
+  --font-alice: var(--font-alice);
+  --font-cardo: var(--font-cardo);
+  --font-sans: var(--font-cardo), ui-serif, "Cardo", serif;
 }
 
 :root {
@@ -25,6 +28,9 @@ body {
 
 @layer base {
   * {
-    @apply border-pink-soft;
+    @apply border-pink-light/60;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-alice;
   }
 }

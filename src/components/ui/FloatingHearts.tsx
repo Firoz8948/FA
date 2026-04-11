@@ -54,7 +54,7 @@ export const FloatingHearts: React.FC<{ enabled: boolean }> = ({ enabled }) => {
               delay: heart.delay,
               ease: "linear" 
             }}
-            className="absolute text-pink-soft/20"
+            className="absolute text-slate-400/25"
           >
             <Heart 
               size={heart.size} 

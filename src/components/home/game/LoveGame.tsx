@@ -52,7 +52,7 @@ export const LoveGame: React.FC = () => {
   };
 
   return (
-    <div className="bg-white p-8 rounded-[2.5rem] shadow-2xl border-4 border-pink-light max-w-lg mx-auto overflow-hidden relative">
+    <div className="bg-white p-8 rounded-[2.5rem] shadow-2xl border-4 border-slate-200 max-w-lg mx-auto overflow-hidden relative">
       <AnimatePresence mode="wait">
         {!showResult ? (
           <motion.div
@@ -68,7 +68,7 @@ export const LoveGame: React.FC = () => {
                 {QUESTIONS.map((_, i) => (
                   <div 
                     key={i} 
-                    className={`w-2 h-2 rounded-full ${i <= currentQuestion ? 'bg-pink-base' : 'bg-pink-light'}`}
+                    className={`w-2 h-2 rounded-full ${i <= currentQuestion ? 'bg-pink-base' : 'bg-slate-200'}`}
                   />
                 ))}
               </div>
@@ -88,7 +88,7 @@ export const LoveGame: React.FC = () => {
                   className={`p-4 rounded-2xl border-2 text-left transition-all font-medium ${
                     selected === i 
                       ? (i === QUESTIONS[currentQuestion].correct ? "bg-green-50 border-green-500 text-green-700" : "bg-red-50 border-red-500 text-red-700")
-                      : "border-pink-light hover:border-pink-base hover:bg-pink-light/20 text-pink-rose"
+                      : "border-slate-200 hover:border-rose-400 hover:bg-rose-50 text-slate-700"
                   }`}
                 >
                   {opt}
@@ -103,7 +103,7 @@ export const LoveGame: React.FC = () => {
             animate={{ opacity: 1, scale: 1 }}
             className="text-center space-y-8 py-8"
           >
-            <div className="inline-block p-6 rounded-full bg-pink-light/30 text-pink-deep mb-4">
+            <div className="inline-block p-6 rounded-full bg-rose-50 text-pink-deep mb-4">
               <Trophy size={60} />
             </div>
             <h3 className="text-3xl font-bold text-pink-deep">

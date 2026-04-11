@@ -7,7 +7,7 @@ import { MESSAGES } from "@/constants/messages";
 
 export const MessagesSection: React.FC = () => {
   return (
-    <section className="py-24 px-6 bg-cream/50 relative">
+    <section className="py-24 px-6 bg-stone-100/70 relative">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-pink-deep">Little Love Notes</h2>

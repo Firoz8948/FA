@@ -19,8 +19,8 @@ export const HeartToggle: React.FC<HeartToggleProps> = ({ enabled, onToggle }) =
       className={cn(
         "p-3 rounded-full transition-all duration-500 shadow-md",
         enabled 
-          ? "bg-pink-base text-white ring-4 ring-pink-light" 
-          : "bg-white text-pink-soft ring-2 ring-pink-soft/20"
+          ? "bg-pink-base text-white ring-4 ring-rose-200" 
+          : "bg-white text-slate-500 ring-2 ring-slate-200/80"
       )}
       title={enabled ? "Disable hearts" : "Enable hearts"}
     >

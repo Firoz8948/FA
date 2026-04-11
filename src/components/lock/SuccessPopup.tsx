@@ -16,12 +16,12 @@ export const SuccessPopup: React.FC<SuccessPopupProps> = ({ isVisible }) => {
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 1.5 }}
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-pink-light/30 backdrop-blur-md"
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-900/25 backdrop-blur-md"
         >
           <motion.div
             initial={{ y: 20 }}
             animate={{ y: 0 }}
-            className="bg-white p-12 rounded-[2rem] shadow-2xl flex flex-col items-center gap-6 border-4 border-pink-soft"
+            className="bg-white p-12 rounded-[2rem] shadow-2xl flex flex-col items-center gap-6 border-4 border-slate-200"
           >
             <motion.div
               animate={{ scale: [1, 1.2, 1] }}

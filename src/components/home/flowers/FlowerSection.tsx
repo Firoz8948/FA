@@ -33,7 +33,7 @@ export const FlowerSection: React.FC = () => {
 
   return (
     <section 
-      className="h-[60vh] flex flex-col items-center justify-center bg-pink-light/10 relative cursor-pointer overflow-hidden"
+      className="h-[60vh] flex flex-col items-center justify-center bg-emerald-50/50 relative cursor-pointer overflow-hidden"
       onClick={handleClick}
     >
       <div className="text-center z-10 pointer-events-none">

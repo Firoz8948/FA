@@ -10,13 +10,13 @@ export default {
     extend: {
       colors: {
         pink: {
-          light:  '#FFE4E8',
-          soft:   '#FFB6C1',
-          base:   '#FF69B4',
-          deep:   '#FF1493',
-          rose:   '#E91E8C',
+          light:  '#e2e8f0',
+          soft:   '#64748b',
+          base:   '#be123c',
+          deep:   '#0f172a',
+          rose:   '#334155',
         },
-        cream: '#FFF5F7',
+        cream: '#f5f5f4',
       },
     },
   },

@@ -12,12 +12,16 @@ interface PasswordInputProps {
 
 export const PasswordInput: React.FC<PasswordInputProps> = ({ onComplete, error }) => {
   const [pin, setPin] = useState<string>("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
-    if (pin.length === 4) {
+    if (pin.length === 4 && !isSubmitting) {
+      setIsSubmitting(true);
       onComplete(pin);
+    } else if (pin.length < 4) {
+      setIsSubmitting(false);
     }
-  }, [pin, onComplete]);
+  }, [pin, onComplete, isSubmitting]);
 
   useEffect(() => {
     if (error && pin.length === 4) {
@@ -49,7 +53,7 @@ export const PasswordInput: React.FC<PasswordInputProps> = ({ onComplete, error 
             transition={{ duration: 0.4 }}
             className={cn(
               "w-4 h-4 rounded-full border-2 border-pink-soft transition-all duration-300",
-              pin.length > index ? "bg-pink-base scale-125 shadow-[0_0_10px_rgba(255,105,180,0.5)]" : "bg-transparent"
+              pin.length > index ? "bg-pink-base scale-125 shadow-[0_0_10px_rgba(190,18,60,0.35)]" : "bg-transparent"
             )}
           />
         ))}
