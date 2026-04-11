@@ -37,7 +37,7 @@ export const FloatingHearts: React.FC<{ enabled: boolean }> = ({ enabled }) => {
   }, [enabled]);
 
   return (
-    <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
+    <div className="fixed inset-0 pointer-events-none overflow-hidden z-[60]">
       <AnimatePresence>
         {hearts.map((heart) => (
           <motion.div
@@ -45,7 +45,7 @@ export const FloatingHearts: React.FC<{ enabled: boolean }> = ({ enabled }) => {
             initial={{ y: "110vh", opacity: 0, x: `${heart.x}vw` }}
             animate={{ 
               y: "-10vh", 
-              opacity: [0, 1, 1, 0],
+              opacity: [0, 0.4, 0.4, 0],
               x: `${heart.x + (Math.random() - 0.5) * 10}vw`
             }}
             exit={{ opacity: 0 }}
@@ -54,12 +54,12 @@ export const FloatingHearts: React.FC<{ enabled: boolean }> = ({ enabled }) => {
               delay: heart.delay,
               ease: "linear" 
             }}
-            className="absolute text-slate-400/25"
+            className="absolute text-rose-400"
           >
             <Heart 
               size={heart.size} 
               fill="currentColor" 
-              className="drop-shadow-sm"
+              className="drop-shadow-md opacity-25"
             />
           </motion.div>
         ))}

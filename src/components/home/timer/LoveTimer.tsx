@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import { Heart } from "lucide-react";
 import { useLoveTimer } from "@/hooks/useLoveTimer";
 
 export const LoveTimer: React.FC = () => {
@@ -51,14 +52,25 @@ export const LoveTimer: React.FC = () => {
           ))}
         </div>
 
-        <motion.p 
+        <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.6 }}
-          className="mt-16 text-slate-600 text-xl font-medium tracking-tight"
+          className="mt-16 flex flex-col items-center gap-4"
         >
-          Every second with you is a <span className="text-indigo-600 font-bold">treasure</span> I hold close to my heart...
-        </motion.p>
+          <div className="flex items-center gap-2 text-2xl font-bold text-slate-800">
+            <span>I Love You Beyond Words</span>
+            <motion.div
+              animate={{ scale: [1, 1.2, 1] }}
+              transition={{ repeat: Infinity, duration: 1.5 }}
+            >
+              <Heart className="w-8 h-8 fill-rose-600 text-rose-600 drop-shadow-sm" />
+            </motion.div>
+          </div>
+          <p className="text-slate-500 font-medium tracking-tight">
+            Every second with you is a <span className="text-indigo-600 font-bold">treasure</span> I hold close...
+          </p>
+        </motion.div>
       </div>
     </section>
   );
