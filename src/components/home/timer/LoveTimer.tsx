@@ -24,15 +24,15 @@ export const LoveTimer: React.FC = () => {
         initial={{ opacity: 0, scale: 0.98 }}
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1 }}
-        className="max-w-4xl mx-auto text-center relative z-10 p-12 bg-white rounded-[48px] border-2 border-dashed border-pink-soft/40 shadow-xl shadow-pink-base/5 overflow-hidden"
+        className="max-w-4xl mx-auto text-center relative z-10 p-12 bg-white rounded-[48px] border-2 border-pink-base/20 shadow-xl shadow-pink-base/5 overflow-hidden"
         style={{ 
           backgroundImage: "url('/assets/hands.png')", 
           backgroundSize: "cover", 
           backgroundPosition: "center" 
         }}
       >
-        {/* White overlay for readability */}
-        <div className="absolute inset-0 bg-white/80 backdrop-blur-[1px]" />
+        {/* White overlay for readability - reduced opacity to show image more */}
+        <div className="absolute inset-0 bg-white/40 backdrop-blur-[1px]" />
 
         <div className="relative z-10">
           <motion.div
@@ -41,7 +41,7 @@ export const LoveTimer: React.FC = () => {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-4xl font-black text-pink-deep mb-2">Our Journey Together</h2>
-            <p className="text-pink-soft mb-16 font-medium italic">Every moment has been magic Since April 15, 2025</p>
+            <p className="text-pink-deep/90 mb-16 font-semibold italic">Every moment has been magic Since April 15, 2025</p>
           </motion.div>
         
         <div className="flex flex-wrap justify-center gap-6 md:gap-8">
@@ -81,10 +81,10 @@ export const LoveTimer: React.FC = () => {
               <Heart className="w-8 h-8 fill-pink-base text-pink-base drop-shadow-sm" />
             </motion.div>
           </div>
-          <p className="text-pink-soft font-medium tracking-tight">
-            Every second with you is a <span className="text-pink-base font-bold">treasure</span> I hold close...
+          <p className="text-pink-deep font-bold font-alice tracking-tight">
+            Every second with you is a <span className="text-pink-base underline decoration-pink-base/30 underline-offset-4">treasure</span> I hold close...
           </p>
-          </motion.div>
+        </motion.div>
         </div>
       </motion.div>
     </section>
