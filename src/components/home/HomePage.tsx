@@ -1,10 +1,10 @@
 "use client";
 
 import React from "react";
-import { Navbar } from "@/components/ui/Navbar";
 import { LoveTimer } from "./timer/LoveTimer";
 import { Second } from "./sections/Second";
 import { MessagesSection } from "./messages/MessagesSection";
+import { CuteMessage } from "./sections/CuteMessage";
 import { useLoveTimer } from "@/hooks/useLoveTimer";
 import { motion, useScroll, useSpring } from "framer-motion";
 
@@ -29,15 +29,9 @@ export const HomePage: React.FC<HomePageProps> = ({
 
   return (
     <div className="relative bg-pink-light min-h-screen">
-      <Navbar 
-        heartsEnabled={heartsEnabled} 
-        onToggleHearts={onToggleHearts}
-        timerText={timerText}
-      />
-
       {/* Progress Bar */}
       <motion.div
-        className="fixed top-20 left-0 right-0 h-1 origin-left z-50 bg-gradient-to-r from-pink-soft via-pink-base to-pink-rose"
+        className="fixed top-0 left-0 right-0 h-1 origin-left z-50 bg-gradient-to-r from-pink-soft via-pink-base to-pink-rose"
         style={{ scaleX }}
       />
 
@@ -45,6 +39,7 @@ export const HomePage: React.FC<HomePageProps> = ({
         <LoveTimer />
         <Second />
         <MessagesSection />
+        <CuteMessage />
       </main>
 
       <footer className="py-12 px-6 text-center bg-white/50 backdrop-blur-sm border-t border-pink-soft/20">
