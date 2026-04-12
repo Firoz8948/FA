@@ -9,6 +9,7 @@ import { Qna } from "./sections/Qna";
 import { ChatAnalysis } from "./sections/ChatAnalysis";
 import { Spinner } from "./sections/Spinner";
 import { Things } from "./sections/Things";
+import { FloatingControls } from "../ui/FloatingControls";
 import { useLoveTimer } from "@/hooks/useLoveTimer";
 import { motion, useScroll, useSpring } from "framer-motion";
 
@@ -49,6 +50,9 @@ export const HomePage: React.FC<HomePageProps> = ({
         <Spinner />
         <Things />
       </main>
+
+      {/* Floating Action Controls */}
+      <FloatingControls heartsEnabled={heartsEnabled} onToggleHearts={onToggleHearts} />
 
       <footer className="py-12 px-6 text-center bg-white/50 backdrop-blur-sm border-t border-pink-soft/20">
         <p className="font-bold text-pink-deep text-2xl">I Love You Beyond Words ❤️</p>

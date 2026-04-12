@@ -45,7 +45,7 @@ export const FloatingHearts: React.FC<{ enabled: boolean }> = ({ enabled }) => {
             initial={{ y: "110vh", opacity: 0, x: `${heart.x}vw` }}
             animate={{ 
               y: "-10vh", 
-              opacity: [0, 0.4, 0.4, 0],
+              opacity: [0, 0.7, 0.7, 0],
               x: `${heart.x + (Math.random() - 0.5) * 10}vw`
             }}
             exit={{ opacity: 0 }}
@@ -54,12 +54,12 @@ export const FloatingHearts: React.FC<{ enabled: boolean }> = ({ enabled }) => {
               delay: heart.delay,
               ease: "linear" 
             }}
-            className="absolute text-rose-400"
+            className="absolute text-pink-base/50"
           >
             <Heart 
               size={heart.size} 
               fill="currentColor" 
-              className="drop-shadow-md opacity-25"
+              className="drop-shadow-lg"
             />
           </motion.div>
         ))}
