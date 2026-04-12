@@ -72,8 +72,16 @@ Yours.`;
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
               onClick={(e) => e.stopPropagation()}
+              style={{ 
+                backgroundImage: "url('/assets/popupbg.jpeg')",
+                backgroundSize: 'cover',
+                backgroundPosition: 'center'
+              }}
               className="relative w-full max-w-2xl bg-white rounded-[40px] p-8 md:p-12 shadow-2xl border-4 border-double border-pink-soft/20 overflow-hidden"
             >
+              {/* Overlay for readability */}
+              <div className="absolute inset-0 bg-white/85 backdrop-blur-[2px]" />
+
               {/* Close Button */}
               <button
                 type="button"

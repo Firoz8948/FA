@@ -45,6 +45,7 @@ export const HomePage: React.FC<HomePageProps> = ({
         <MessagesSection />
         <CuteMessage />
         <ChatAnalysis />
+        <Qna />
         <Spinner />
         <Things />
         <MoonSection />
@@ -54,9 +55,14 @@ export const HomePage: React.FC<HomePageProps> = ({
       {/* Floating Action Controls */}
       <FloatingControls heartsEnabled={heartsEnabled} onToggleHearts={onToggleHearts} />
 
-      <footer className="py-12 px-6 text-center bg-white/50 backdrop-blur-sm border-t border-pink-soft/20">
-        <p className="font-bold text-pink-deep text-2xl">I Love You Beyond Words ❤️</p>
-        <p className="text-pink-soft text-xl mt-2 font-medium italic">Always & Forever Yours</p>
+      <footer className="py-20 px-6 text-center bg-white/50 backdrop-blur-sm border-t border-pink-soft/20">
+        <div className="max-w-2xl mx-auto">
+          <p className="font-alice text-xl md:text-2xl text-pink-deep mb-6 leading-relaxed">
+            I know sometimes things gets tough, but I Promise to make it work until my last breathe, I hope you trust me. I will make us reach where we want to. And I know sometimes mai galtiya karta hu but dont be so hard on me. Dont forget that I am your baby
+          </p>
+          <p className="font-black text-pink-base text-2xl mb-2">I Love You Beyond Words ❤️</p>
+          <p className="text-pink-soft text-xl font-bold italic font-cardo">Always & Forever Yours, Firoz</p>
+        </div>
       </footer>
     </div>
   );
