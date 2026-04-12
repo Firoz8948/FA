@@ -5,6 +5,7 @@ import { LoveTimer } from "./timer/LoveTimer";
 import { Second } from "./sections/Second";
 import { MessagesSection } from "./messages/MessagesSection";
 import { CuteMessage } from "./sections/CuteMessage";
+import { Qna } from "./sections/Qna";
 import { useLoveTimer } from "@/hooks/useLoveTimer";
 import { motion, useScroll, useSpring } from "framer-motion";
 
@@ -40,6 +41,7 @@ export const HomePage: React.FC<HomePageProps> = ({
         <Second />
         <MessagesSection />
         <CuteMessage />
+        <Qna />
       </main>
 
       <footer className="py-12 px-6 text-center bg-white/50 backdrop-blur-sm border-t border-pink-soft/20">
