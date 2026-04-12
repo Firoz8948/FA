@@ -16,6 +16,8 @@ export interface Message {
   text: string
   emoji: string
   color: string
+  backgroundImage?: string
+  backgroundPosition?: string
 }
 
 export type AppState = "locked" | "unlocking" | "unlocked"
