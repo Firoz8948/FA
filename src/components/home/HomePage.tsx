@@ -5,6 +5,7 @@ import { LoveTimer } from "./timer/LoveTimer";
 import { Second } from "./sections/Second";
 import { MessagesSection } from "./messages/MessagesSection";
 import { CuteMessage } from "./sections/CuteMessage";
+import { MoonSection } from "./sections/MoonSection";
 import { Qna } from "./sections/Qna";
 import { ChatAnalysis } from "./sections/ChatAnalysis";
 import { Spinner } from "./sections/Spinner";
@@ -42,10 +43,10 @@ export const HomePage: React.FC<HomePageProps> = ({
         <Second />
         <MessagesSection />
         <CuteMessage />
-        <Qna />
         <ChatAnalysis />
         <Spinner />
         <Things />
+        <MoonSection />
       </main>
 
       {/* Floating Action Controls */}
