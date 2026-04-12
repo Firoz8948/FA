@@ -51,65 +51,66 @@ Yours.`;
           </button>
         </div>
 
-        {/* Modal / Popup */}
-        <AnimatePresence>
-          {isOpen && (
-            <div className="fixed inset-0 z-[100] flex items-center justify-center p-6">
-              {/* Backdrop */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                onClick={() => setIsOpen(false)}
-                className="absolute inset-0 bg-pink-deep/40 backdrop-blur-md cursor-pointer"
-              />
+      </motion.div>
+      
+      {/* Modal / Popup - Moved outside the z-10 motion.div to escape styling context */}
+      <AnimatePresence>
+        {isOpen && (
+          <div className="fixed inset-0 z-[9999] flex items-center justify-center p-6">
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsOpen(false)}
+              className="absolute inset-0 bg-pink-deep/40 backdrop-blur-md cursor-pointer"
+            />
 
-              {/* Modal Content */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9, y: 20 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.9, y: 20 }}
-                onClick={(e) => e.stopPropagation()}
-                className="relative w-full max-w-2xl bg-white rounded-[40px] p-8 md:p-12 shadow-2xl border-4 border-double border-pink-soft/20 overflow-hidden"
+            {/* Modal Content */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              onClick={(e) => e.stopPropagation()}
+              className="relative w-full max-w-2xl bg-white rounded-[40px] p-8 md:p-12 shadow-2xl border-4 border-double border-pink-soft/20 overflow-hidden"
+            >
+              {/* Close Button */}
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setIsOpen(false);
+                }}
+                className="absolute top-6 right-6 p-2 rounded-full hover:bg-pink-light transition-colors text-pink-soft hover:text-pink-base z-50 pointer-events-auto"
               >
-                {/* Close Button */}
-                <button
-                  type="button"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setIsOpen(false);
-                  }}
-                  className="absolute top-6 right-6 p-2 rounded-full hover:bg-pink-light transition-colors text-pink-soft hover:text-pink-base z-50 pointer-events-auto"
-                >
-                  <X className="w-6 h-6" />
-                </button>
+                <X className="w-6 h-6" />
+              </button>
 
-                <div className="relative z-10">
-                  <div className="flex justify-center mb-8">
-                    <Sparkles className="w-12 h-12 text-pink-soft opacity-40 animate-pulse" />
-                  </div>
-
-                  <div className="max-h-[60vh] overflow-y-auto no-scrollbar pr-2">
-                    <p className="font-alice text-2xl md:text-3xl text-pink-deep mb-8 leading-relaxed whitespace-pre-wrap">
-                      {longMessage}
-                    </p>
-                  </div>
-
-                  <div className="mt-8 pt-8 border-t border-pink-soft/10 text-center">
-                    <p className="font-cardo italic text-pink-soft text-lg font-bold">
-                      Yours Always ❤️
-                    </p>
-                  </div>
+              <div className="relative z-10">
+                <div className="flex justify-center mb-8">
+                  <Sparkles className="w-12 h-12 text-pink-soft opacity-40 animate-pulse" />
                 </div>
 
-                {/* Decorative Elements inside Modal */}
-                <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-pink-light rounded-full opacity-30 blur-2xl pointer-events-none" />
-                <div className="absolute -top-10 -right-10 w-32 h-32 bg-rose-100 rounded-full opacity-30 blur-2xl pointer-events-none" />
-              </motion.div>
-            </div>
-          )}
-        </AnimatePresence>
-      </motion.div>
+                <div className="max-h-[60vh] overflow-y-auto no-scrollbar pr-2">
+                  <p className="font-alice text-2xl md:text-3xl text-pink-deep mb-8 leading-relaxed whitespace-pre-wrap">
+                    {longMessage}
+                  </p>
+                </div>
+
+                <div className="mt-8 pt-8 border-t border-pink-soft/10 text-center">
+                  <p className="font-cardo italic text-pink-soft text-lg font-bold">
+                    Yours Always ❤️
+                  </p>
+                </div>
+              </div>
+
+              {/* Decorative Elements inside Modal */}
+              <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-pink-light rounded-full opacity-30 blur-2xl pointer-events-none" />
+              <div className="absolute -top-10 -right-10 w-32 h-32 bg-rose-100 rounded-full opacity-30 blur-2xl pointer-events-none" />
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };

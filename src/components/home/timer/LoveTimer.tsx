@@ -24,16 +24,25 @@ export const LoveTimer: React.FC = () => {
         initial={{ opacity: 0, scale: 0.98 }}
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1 }}
-        className="max-w-4xl mx-auto text-center relative z-10 p-12 bg-white rounded-[48px] border-2 border-dashed border-pink-soft/40 shadow-xl shadow-pink-base/5"
+        className="max-w-4xl mx-auto text-center relative z-10 p-12 bg-white rounded-[48px] border-2 border-dashed border-pink-soft/40 shadow-xl shadow-pink-base/5 overflow-hidden"
+        style={{ 
+          backgroundImage: "url('/assets/hands.png')", 
+          backgroundSize: "cover", 
+          backgroundPosition: "center" 
+        }}
       >
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <h2 className="text-4xl font-black text-pink-deep mb-2">Our Journey Together</h2>
-          <p className="text-pink-soft mb-16 font-medium italic">Every moment has been magic Since April 15, 2025</p>
-        </motion.div>
+        {/* White overlay for readability */}
+        <div className="absolute inset-0 bg-white/80 backdrop-blur-[1px]" />
+
+        <div className="relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-4xl font-black text-pink-deep mb-2">Our Journey Together</h2>
+            <p className="text-pink-soft mb-16 font-medium italic">Every moment has been magic Since April 15, 2025</p>
+          </motion.div>
         
         <div className="flex flex-wrap justify-center gap-6 md:gap-8">
           {[
@@ -75,7 +84,8 @@ export const LoveTimer: React.FC = () => {
           <p className="text-pink-soft font-medium tracking-tight">
             Every second with you is a <span className="text-pink-base font-bold">treasure</span> I hold close...
           </p>
-        </motion.div>
+          </motion.div>
+        </div>
       </motion.div>
     </section>
   );
