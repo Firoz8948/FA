@@ -1,0 +1,5 @@
+// EmailJS Credentials
+// Replace these with your actual values from the EmailJS dashboard
+export const EMAILJS_SERVICE_ID = "YOUR_SERVICE_ID";
+export const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";
+export const EMAILJS_PUBLIC_KEY = "YOUR_PUBLIC_KEY";

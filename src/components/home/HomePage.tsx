@@ -7,6 +7,7 @@ import { MessagesSection } from "./messages/MessagesSection";
 import { CuteMessage } from "./sections/CuteMessage";
 import { Qna } from "./sections/Qna";
 import { ChatAnalysis } from "./sections/ChatAnalysis";
+import { Spinner } from "./sections/Spinner";
 import { Things } from "./sections/Things";
 import { useLoveTimer } from "@/hooks/useLoveTimer";
 import { motion, useScroll, useSpring } from "framer-motion";
@@ -45,6 +46,7 @@ export const HomePage: React.FC<HomePageProps> = ({
         <CuteMessage />
         <Qna />
         <ChatAnalysis />
+        <Spinner />
         <Things />
       </main>
 
