@@ -4,6 +4,7 @@ import React from "react";
 import { Navbar } from "@/components/ui/Navbar";
 import { LoveTimer } from "./timer/LoveTimer";
 import { Second } from "./sections/Second";
+import { MessagesSection } from "./messages/MessagesSection";
 import { useLoveTimer } from "@/hooks/useLoveTimer";
 import { motion, useScroll, useSpring } from "framer-motion";
 
@@ -43,6 +44,7 @@ export const HomePage: React.FC<HomePageProps> = ({
       <main>
         <LoveTimer />
         <Second />
+        <MessagesSection />
       </main>
 
       <footer className="py-12 px-6 text-center bg-white/50 backdrop-blur-sm border-t border-pink-soft/20">
