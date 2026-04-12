@@ -7,7 +7,7 @@ import { MESSAGES } from "@/constants/messages";
 
 export const MessagesSection: React.FC = () => {
   return (
-    <section className="pt-8 pb-24 px-6 relative overflow-hidden">
+    <section className="pt-12 pb-12 px-6 relative overflow-hidden">
       {/* Decorative background element */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-pink-base/5 via-transparent to-transparent pointer-events-none" />
 
