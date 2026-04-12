@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageCircle, Heart, RotateCcw, Send } from "lucide-react";
 
@@ -14,7 +14,7 @@ type QnaStep = {
     isLoop?: boolean;
     isKissLoop?: boolean;
   }[];
-  lines?: string[]; // For auto-loop/sequence steps
+  lines?: string[];
 };
 
 export const Qna: React.FC = () => {
@@ -29,15 +29,15 @@ export const Qna: React.FC = () => {
       question: "Do you love your baby?",
       type: "choice",
       options: [
-        { 
-          label: "Yes", 
+        {
+          label: "Yes",
           response: "Achaaa? Itni jaldi maan gayi? Aaj itna pyar aa raha kya",
-          isLoop: true 
+          isLoop: true
         },
-        { 
-          label: "No", 
+        {
+          label: "No",
           response: "Haan haan pata tha tum yaha bhi mana karogi… but I love my baby ❤️",
-          nextStep: 1 
+          nextStep: 1
         }
       ]
     },
@@ -45,13 +45,13 @@ export const Qna: React.FC = () => {
       question: "Babyyy kissi de do?",
       type: "choice",
       options: [
-        { 
-          label: "Give Kisses", 
+        {
+          label: "Give Kisses",
           response: "Haan ab thik lag raha ❤️",
           nextStep: 2
         },
-        { 
-          label: "Nahi milegi", 
+        {
+          label: "Nahi milegi",
           response: [
             "De do yaar babyyy",
             "Please de do babyyy",
@@ -67,13 +67,13 @@ export const Qna: React.FC = () => {
       question: "Sach sach batao… miss karti ho mujhe?",
       type: "choice",
       options: [
-        { 
-          label: "Haan", 
+        {
+          label: "Haan",
           response: "Kitnaaa? itna ya itnaaaaa ❤️",
           nextStep: 3
         },
-        { 
-          label: "Nahi", 
+        {
+          label: "Nahi",
           response: "Waah pata tha muje… you don’t miss your baby… only your baby miss you bas ❤️",
           nextStep: 3
         }
@@ -83,13 +83,13 @@ export const Qna: React.FC = () => {
       question: "Babyyyy ek baat bolu? ❤️",
       type: "choice",
       options: [
-        { 
-          label: "Bolo", 
+        {
+          label: "Bolo",
           response: "Babyyyy I wanna see you in red shadi ke jode me ❤️",
           nextStep: 4
         },
-        { 
-          label: "Nahi sunna", 
+        {
+          label: "Nahi sunna",
           response: "Sun lo na ek baar… dil se bol raha hu",
           isLoop: true
         }
@@ -101,7 +101,7 @@ export const Qna: React.FC = () => {
       lines: [
         "Tum red jode me… me bas tumhe dekhta reh jaun ❤️",
         "Aur jab tum sharmaogi na… bas wahi moment freeze kar du ❤️",
-        "You are already mine❤️",
+        "You are already mine ❤️",
         "And official soon"
       ]
     },
@@ -109,13 +109,13 @@ export const Qna: React.FC = () => {
       question: "You are my baby na ❤️",
       type: "choice",
       options: [
-        { 
-          label: "Haan", 
+        {
+          label: "Haan",
           response: "Bas yehi sunna tha ❤️",
           nextStep: 6
         },
-        { 
-          label: "Pata nahi", 
+        {
+          label: "Pata nahi",
           response: "Natak mat kar be ❤️",
           nextStep: 6
         }
@@ -125,29 +125,29 @@ export const Qna: React.FC = () => {
       question: "Date pe chale fir?",
       type: "choice",
       options: [
-        { 
-          label: "Chalo!", 
+        {
+          label: "Chalo!",
           response: "Yesss Be readyyyy ❤️",
           nextStep: 7
         },
-        { 
-          label: "Nahi jana", 
-          response: "Kyuuu ❤️",
+        {
+          label: "Nahi jana",
+          response: "Kyuuu be",
           nextStep: 7
         }
       ]
     },
     {
-      question: "Agar me bolu ki mai meri baby ko accha accha khiluanga tab ❤️",
+      question: "Batao meri baby ko kya khana hai ❤️",
       type: "choice",
       options: [
-        { 
-          label: "Kya khilaoge", 
+        {
+          label: "Kya khilaoge",
           response: "Jo bhi meri baby ko khana rahega sab",
           nextStep: 8
         },
-        { 
-          label: "Nahi Khana", 
+        {
+          label: "Nahi Khana",
           response: "Pata tha tu yaha bhi mana hi karegi muje?",
           nextStep: 8
         }
@@ -157,7 +157,7 @@ export const Qna: React.FC = () => {
 
   const triggerTyping = (callback: () => void) => {
     setIsTyping(true);
-    const duration = Math.random() * 800 + 800; // slightly faster typing
+    const duration = Math.random() * 500 + 800; // Keep the typing indicator as it's cute
     setTimeout(() => {
       setIsTyping(false);
       callback();
@@ -171,7 +171,7 @@ export const Qna: React.FC = () => {
       triggerTyping(() => {
         setResponse(currentResp);
         setKissLoopCount(prev => prev + 1);
-        setTimeout(() => setResponse(null), 1800);
+        setTimeout(() => setResponse(null), 2500); 
       });
       return;
     }
@@ -185,7 +185,7 @@ export const Qna: React.FC = () => {
           setCurrentStep(option.nextStep);
           setResponse(null);
         }
-      }, 2200);
+      }, 3500); 
     });
   };
 
@@ -268,7 +268,7 @@ export const Qna: React.FC = () => {
                   </p>
                   <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-pink-light/30 border-r border-b border-pink-soft/10 rotate-45" />
                 </div>
-                
+
                 <div className="flex justify-center gap-4 flex-wrap">
                   {steps[currentStep].type === "choice" ? (
                     steps[currentStep].options!.map((opt) => (
