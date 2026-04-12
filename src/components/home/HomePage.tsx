@@ -6,6 +6,7 @@ import { Second } from "./sections/Second";
 import { MessagesSection } from "./messages/MessagesSection";
 import { CuteMessage } from "./sections/CuteMessage";
 import { MoonSection } from "./sections/MoonSection";
+import { SongDedication } from "./sections/SongDedication";
 import { Qna } from "./sections/Qna";
 import { ChatAnalysis } from "./sections/ChatAnalysis";
 import { Spinner } from "./sections/Spinner";
@@ -47,6 +48,7 @@ export const HomePage: React.FC<HomePageProps> = ({
         <Spinner />
         <Things />
         <MoonSection />
+        <SongDedication />
       </main>
 
       {/* Floating Action Controls */}
