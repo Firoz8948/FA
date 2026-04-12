@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
 @theme {
-  /* Warm neutrals + slate (legacy names kept for Tailwind classes site-wide) */
-  --color-pink-light: #e2e8f0;
-  --color-pink-soft: #64748b;
-  --color-pink-base: #be123c;
-  --color-pink-deep: #0f172a;
-  --color-pink-rose: #334155;
-  --color-cream: #f5f5f4;
+  /* Vibrant Pink Theme */
+  --color-pink-light: #fff1f2;
+  --color-pink-soft: #fda4af;
+  --color-pink-base: #f43f5e;
+  --color-pink-deep: #881337;
+  --color-pink-rose: #fb7185;
+  --color-cream: #fff5f7;
 
   --font-alice: var(--font-alice);
   --font-cardo: var(--font-cardo);
@@ -15,8 +15,8 @@
 }
 
 :root {
-  --background: var(--color-cream);
-  --foreground: var(--color-pink-rose);
+  --background: var(--color-pink-light);
+  --foreground: var(--color-pink-deep);
 }
 
 body {

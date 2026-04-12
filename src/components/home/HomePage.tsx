@@ -26,7 +26,7 @@ export const HomePage: React.FC<HomePageProps> = ({
   });
 
   return (
-    <div className="relative bg-cream min-h-screen">
+    <div className="relative bg-pink-light min-h-screen">
       <Navbar 
         heartsEnabled={heartsEnabled} 
         onToggleHearts={onToggleHearts}
@@ -35,7 +35,7 @@ export const HomePage: React.FC<HomePageProps> = ({
 
       {/* Progress Bar */}
       <motion.div
-        className="fixed top-20 left-0 right-0 h-1 origin-left z-50 bg-gradient-to-r from-rose-600 via-pink-base to-indigo-600"
+        className="fixed top-20 left-0 right-0 h-1 origin-left z-50 bg-gradient-to-r from-pink-soft via-pink-base to-pink-rose"
         style={{ scaleX }}
       />
 
@@ -43,9 +43,9 @@ export const HomePage: React.FC<HomePageProps> = ({
         <LoveTimer />
       </main>
 
-      <footer className="py-12 px-6 text-center bg-white border-t border-slate-200/80">
-        <p className="font-bold text-slate-800 text-2xl">I Love You Beyond Words ❤️</p>
-        <p className="text-slate-600 text-xl mt-2">Always & Forever Yours</p>
+      <footer className="py-12 px-6 text-center bg-white/50 backdrop-blur-sm border-t border-pink-soft/20">
+        <p className="font-bold text-pink-deep text-2xl">I Love You Beyond Words ❤️</p>
+        <p className="text-pink-soft text-xl mt-2 font-medium italic">Always & Forever Yours</p>
       </footer>
     </div>
   );
