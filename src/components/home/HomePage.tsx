@@ -21,8 +21,8 @@ export const HomePage: React.FC<HomePageProps> = ({
   heartsEnabled, 
   onToggleHearts 
 }) => {
+  const {Days, Hours, Minutes} = useLoveTimer(); // Wait, the previous useLoveTimer call was different
   const { days, hours, minutes } = useLoveTimer();
-  const timerText = `${days}d ${hours}h ${minutes}m`;
 
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {

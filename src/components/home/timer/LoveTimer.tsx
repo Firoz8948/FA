@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Heart } from "lucide-react";
 import { useLoveTimer } from "@/hooks/useLoveTimer";
+import { MusicPlayer } from "./MusicPlayer";
 
 export const LoveTimer: React.FC = () => {
   const { days, hours, minutes, seconds } = useLoveTimer();
@@ -35,6 +36,7 @@ export const LoveTimer: React.FC = () => {
         <div className="absolute inset-0 bg-white/40 backdrop-blur-[1px]" />
 
         <div className="relative z-10">
+          <MusicPlayer />
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
