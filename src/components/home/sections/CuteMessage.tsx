@@ -23,7 +23,7 @@ const STORY: StorySection[] = [
   },
   {
     type: "image",
-    src: "/assets/popup1.jpeg",
+    src: "/assets/popup1.webp",
     caption: "Our First Meeting",
     date: "4 May, 2025"
   },
@@ -33,7 +33,7 @@ const STORY: StorySection[] = [
   },
   {
     type: "image",
-    src: "/assets/popup2.jpeg",
+    src: "/assets/popup2.webp",
     caption: "The First Kiss",
     date: "3 Nov 2025"
   },
@@ -47,7 +47,7 @@ const STORY: StorySection[] = [
   },
   {
     type: "image",
-    src: "/assets/popupbg.jpeg",
+    src: "/assets/popupbg.webp",
     caption: "Lost in Each Other",
     date: "30 Nov 2025"
   },
@@ -57,7 +57,7 @@ const STORY: StorySection[] = [
   },
   {
     type: "image",
-    src: "/assets/popup4.jpeg",
+    src: "/assets/popup4.webp",
     caption: "My Cute Baby",
     date: "9 Feb 2026"
   },
@@ -139,7 +139,7 @@ export const CuteMessage: React.FC = () => {
               {/* Modal Background Image */}
               <div 
                 className="absolute inset-0 opacity-[0.03] pointer-events-none"
-                style={{ backgroundImage: "url('/assets/popupbg.jpeg')", backgroundSize: 'cover' }}
+                style={{ backgroundImage: "url('/assets/popupbg.webp')", backgroundSize: 'cover' }}
               />
 
               {/* Header */}
@@ -202,7 +202,7 @@ export const CuteMessage: React.FC = () => {
                       {section.type === "video" && (
                         <div className="space-y-4">
                            <div className="bg-white p-3 pb-6 rounded-3xl shadow-2xl border-4 border-pink-base/10">
-                             <div className="aspect-video overflow-hidden rounded-2xl bg-black">
+                             <div className="aspect-[3/4] md:aspect-video overflow-hidden rounded-2xl bg-black">
                                <video 
                                   src={section.src} 
                                   autoPlay 
