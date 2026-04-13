@@ -3,14 +3,14 @@ import { Message } from "@/types";
 export const MESSAGES: Message[] = [
   {
     id: 1,
-    text: "You make my world so much brighter just by being in it.",
+    text: "I love you more than anything exist in the entire universe. I Love you million times.",
     emoji: "💖",
     color: "pink",
     backgroundImage: "/assets/image1.jpeg"
   },
   {
     id: 2,
-    text: "I am the luckiest person because I have you by my side.",
+    text: "You mean everything for me, I will keep loving you more and more.",
     emoji: "✨",
     color: "rose",
     backgroundImage: "/assets/image2.jpeg",
@@ -18,14 +18,14 @@ export const MESSAGES: Message[] = [
   },
   {
     id: 3,
-    text: "Every love story is beautiful, but ours is my favorite.",
+    text: "I will never let my baby cry, will do everything to keep you happy",
     emoji: "🌸",
     color: "deep",
     backgroundImage: "/assets/image3.jpeg"
   },
   {
     id: 4,
-    text: "Thank you for being you, and for loving me the way you do.",
+    text: "We will marry one day, for sure",
     emoji: "🦋",
     color: "soft",
     backgroundImage: "/assets/image4.jpeg",

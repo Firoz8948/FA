@@ -93,7 +93,7 @@ export const Second: React.FC = () => {
         <div className="mb-4 h-20 flex flex-col justify-center">
           <h2 className="text-3xl md:text-4xl font-black text-pink-deep mb-1 leading-tight">A Moment Frozen in Time</h2>
           <p className="text-pink-soft font-medium italic text-base">
-            {state === "PLAYING" ? "Cherishing our memories..." : "Click the polaroid to reveal a memory..."}
+            {state === "PLAYING" ? "Cherishing our memories..." : "Click the polaroid to reveal memories..."}
           </p>
         </div>
 
@@ -134,8 +134,8 @@ export const Second: React.FC = () => {
                 className="flex flex-col items-center gap-4 h-full justify-center shrink-0"
               >
                 <Loader2 className="w-12 h-12 text-pink-base animate-spin" />
-                <p className="text-pink-deep font-alice text-xl font-bold animate-pulse">
-                  Please wait, downloading memories...
+                <p className="text-pink-deep font-alice text-xl font-bold animate-pulse text-center">
+                  Please wait, <br className="sm:hidden" /> memory is loading
                 </p>
               </motion.div>
             )}
