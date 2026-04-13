@@ -6,6 +6,7 @@ import { Second } from "./sections/Second";
 import { MessagesSection } from "./messages/MessagesSection";
 import { CuteMessage } from "./sections/CuteMessage";
 import { MoonSection } from "./sections/MoonSection";
+import { Mine } from "./sections/Mine";
 import { SongDedication } from "./sections/SongDedication";
 import { Qna } from "./sections/Qna";
 import { ChatAnalysis } from "./sections/ChatAnalysis";
@@ -49,6 +50,7 @@ export const HomePage: React.FC<HomePageProps> = ({
         <Spinner />
         <Things />
         <MoonSection />
+        <Mine />
         <SongDedication />
       </main>
 
