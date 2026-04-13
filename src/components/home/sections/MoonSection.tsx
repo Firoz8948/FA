@@ -64,7 +64,7 @@ export const MoonSection: React.FC = () => {
             className="relative"
           >
             <img 
-              src="/assets/moon.png" 
+              src="/assets/moon.webp" 
               alt="Moon on Nov 19 2004" 
               className="w-56 h-56 md:w-72 md:h-72 drop-shadow-[0_10px_20px_rgba(244,63,94,0.15)] object-contain"
             />

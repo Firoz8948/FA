@@ -26,7 +26,7 @@ export const LoveTimer: React.FC = () => {
         transition={{ duration: 1 }}
         className="max-w-4xl mx-auto text-center relative z-10 p-12 bg-white rounded-[48px] border-2 border-pink-base/20 shadow-xl shadow-pink-base/5 overflow-hidden"
         style={{ 
-          backgroundImage: "url('/assets/hands.png')", 
+          backgroundImage: "url('/assets/hands.webp')", 
           backgroundSize: "cover", 
           backgroundPosition: "center" 
         }}
