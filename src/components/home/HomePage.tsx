@@ -21,9 +21,9 @@ interface HomePageProps {
   onToggleHearts: () => void;
 }
 
-export const HomePage: React.FC<HomePageProps> = ({ 
-  heartsEnabled, 
-  onToggleHearts 
+export const HomePage: React.FC<HomePageProps> = ({
+  heartsEnabled,
+  onToggleHearts
 }) => {
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
