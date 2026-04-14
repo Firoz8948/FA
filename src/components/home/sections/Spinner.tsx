@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Gift, Sparkles, Trophy, X, Heart, Mail, Utensils, Ship, Bed, Phone } from "lucide-react";
 import emailjs from "@emailjs/browser";
-import { EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, EMAILJS_PUBLIC_KEY } from "@/constants/emailjs";
+import { EMAILJS_SERVICE_ID, EMAILJS_PUBLIC_KEY, EMAILJS_LOVE_LETTER_TEMPLATE, EMAILJS_GLOBAL_PRIZE_TEMPLATE } from "@/constants/emailjs";
 
 const PRIZES = [
   { 
@@ -61,16 +61,8 @@ export const Spinner: React.FC = () => {
     setIsSpinning(true);
     setShowResult(false);
 
-    // Probability Logic: 1 in 100 chance for Swiggy Voucher (Index 1)
-    const rand = Math.random() * 100;
-    let prizeIndex;
-
-    if (rand < 1) {
-      prizeIndex = 1; // Swiggy Rs 250
-    } else {
-      const others = [0, 2, 3, 4];
-      prizeIndex = others[Math.floor(Math.random() * others.length)];
-    }
+    // Equal probability for all prizes
+    const prizeIndex = Math.floor(Math.random() * PRIZES.length);
 
     const segmentAngle = 360 / PRIZES.length;
     const extraSpins = 7 + Math.floor(Math.random() * 5); 
@@ -93,22 +85,42 @@ export const Spinner: React.FC = () => {
   };
 
   const sendNotification = (prize: typeof PRIZES[0]) => {
-    if (EMAILJS_PUBLIC_KEY === "YOUR_PUBLIC_KEY") {
-      console.log("EmailJS not configured. Prize won:", prize.label);
-      return;
-    }
+    // Determine which template to use
+    const premiumPrizes = ["Love Letter", "Swiggy Rs 250", "Boat Trip"];
+    const templateId = premiumPrizes.includes(prize.label)
+      ? EMAILJS_LOVE_LETTER_TEMPLATE 
+      : EMAILJS_GLOBAL_PRIZE_TEMPLATE;
+
+    // Mapping for Unified Template Dynamic Fields
+    const prizeIcons: { [key: string]: string } = {
+      "Love Letter": "✉️",
+      "Swiggy Rs 250": "🍟",
+      "Boat Trip": "⛵",
+      "Romance": "🛏️",
+      "Recieve A Call": "📞"
+    };
+
+    const prizeMessages: { [key: string]: string } = {
+      "Love Letter": "Your baby is pouring his heart out into a beautiful message just for you.",
+      "Swiggy Rs 250": "Time to treat yourself! Your baby has a tasty surprise waiting for you.",
+      "Boat Trip": "Pack your bags! You've got a ticket to the sunset on a romantic boat trip.",
+      "Romance": "Get ready for a night of passion! Lets meet and I will fuck you badly my sweetie.",
+      "Recieve A Call": "Phone is ringing! Your baby will call you within 10 minutes to hear your voice."
+    };
 
     const templateParams = {
-      to_name: "Firoz",
+      to_name: "Arbiya",
       prize_name: prize.label,
-      arbiya_mail: "arbiyakhan1911@gmail.com",
-      firoz_mail: "firoz8948@gmail.com",
-      message: `Hi Firoz, Arbiya got this prize from spinner: ${prize.label}. ${prize.notify}`,
+      prize_icon: prizeIcons[prize.label] || "🎁",
+      prize_message: prizeMessages[prize.label] || prize.popup,
+      arbiya_mail: "arbiyakhan1911@gmail.com", 
+      firoz_mail: "loveumates@gmail.com",
+      message: `Hi Firoz, Arbiya got this prize: ${prize.label}. ${prize.notify}`,
     };
 
     emailjs.send(
       EMAILJS_SERVICE_ID,
-      EMAILJS_TEMPLATE_ID,
+      templateId,
       templateParams,
       EMAILJS_PUBLIC_KEY
     ).then((response) => {
