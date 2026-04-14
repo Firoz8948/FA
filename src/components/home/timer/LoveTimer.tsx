@@ -44,7 +44,7 @@ export const LoveTimer: React.FC = () => {
             <p className="text-pink-deep/90 mb-16 font-semibold italic">Every moment has been magic Since April 15, 2025</p>
           </motion.div>
         
-        <div className="flex flex-wrap justify-center gap-6 md:gap-8">
+        <div className="grid grid-cols-2 lg:flex lg:flex-wrap justify-center justify-items-center gap-4 md:gap-8 max-w-fit mx-auto">
           {[
             { value: days, label: "Days", delay: 0.1 },
             { value: hours, label: "Hours", delay: 0.2 },

@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Gift, Sparkles, Trophy, X, Heart } from "lucide-react";
+import { Gift, Sparkles, Trophy, X, Heart, Mail, Utensils, Ship, Bed, Phone } from "lucide-react";
 import emailjs from "@emailjs/browser";
 import { EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, EMAILJS_PUBLIC_KEY } from "@/constants/emailjs";
 
@@ -11,13 +11,15 @@ const PRIZES = [
     id: 1, 
     label: "Love Letter", 
     color: "#FFC2D1",
+    icon: Mail,
     popup: "Hey baby, you will recieve a beautiful letter from your baby on mail ❤️",
-    notify: "Arbiya will recieve a letter on mail loveumates@gmail.com. Firoz is notified!"
+    notify: "Arbiya will recieve a letter on mail arbiyakhan1911@gmail.com. Firoz is notified!"
   },
   { 
     id: 2, 
     label: "Swiggy Rs 250", 
     color: "#FFE5EC", // Rare 1 in 100
+    icon: Utensils,
     popup: "Hey My Love, you will recieve a swiggy voucher on your mail ❤️",
     notify: "Arbiya will receive the voucher on mail and Firoz is notified!"
   }, 
@@ -25,6 +27,7 @@ const PRIZES = [
     id: 3, 
     label: "Boat Trip", 
     color: "#FFD6E0",
+    icon: Ship,
     popup: "Hey Sweetie, your baby will plan a trip from boat. More details on mail ❤️",
     notify: "Trip Details are being sent to Arbiya on mail and Firoz is notified!"
   },
@@ -32,13 +35,15 @@ const PRIZES = [
     id: 4, 
     label: "Romance", 
     color: "#FFB3C6",
-    popup: "Lets meet and do this badlyyy ❤️",
+    icon: Bed,
+    popup: "Lets meet and I will fuck you badly my sweetie ❤️",
     notify: "Firoz has been notified about the Romance prize!"
   },
   { 
     id: 5, 
     label: "Recieve A Call", 
     color: "#FF8FAB",
+    icon: Phone,
     popup: "Your baby will call you within 10 mints. ❤️",
     notify: "Firoz has been notified that he needs to make a call now!"
   },
@@ -96,7 +101,7 @@ export const Spinner: React.FC = () => {
     const templateParams = {
       to_name: "Firoz",
       prize_name: prize.label,
-      arbiya_mail: "loveumates@gmail.com",
+      arbiya_mail: "arbiyakhan1911@gmail.com",
       firoz_mail: "firoz8948@gmail.com",
       message: `Hi Firoz, Arbiya got this prize from spinner: ${prize.label}. ${prize.notify}`,
     };
@@ -159,6 +164,8 @@ export const Spinner: React.FC = () => {
                 const angle = 360 / PRIZES.length;
                 const rotate = angle * index;
                 const skew = 90 - angle;
+                const Icon = prize.icon;
+
                 return (
                   <div
                     key={prize.id}
@@ -175,9 +182,17 @@ export const Spinner: React.FC = () => {
                         transform: `skewY(${skew}deg) rotate(${angle / 2}deg) translate(25%, -25%)`,
                       }}
                     >
-                      <span className="text-[10px] md:text-[14px] font-black font-alice text-pink-deep text-center px-4 leading-tight uppercase tracking-tight max-w-[80px]">
-                        {prize.label}
-                      </span>
+                      {Icon && (
+                        <div className="flex flex-col items-center justify-center text-pink-deep text-center px-2">
+                          <Icon 
+                            strokeWidth={2.5} 
+                            className="w-5 h-5 md:w-8 md:h-8 mb-1 md:mb-2 opacity-90" 
+                          />
+                          <span className="text-[9px] md:text-[13px] font-black font-alice leading-tight uppercase tracking-tighter max-w-[70px] md:max-w-[90px]">
+                            {prize.label}
+                          </span>
+                        </div>
+                      )}
                     </div>
                   </div>
                 );
