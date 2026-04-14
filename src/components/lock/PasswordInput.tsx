@@ -11,83 +11,80 @@ interface PasswordInputProps {
 }
 
 export const PasswordInput: React.FC<PasswordInputProps> = ({ onComplete, error }) => {
-  const [pin, setPin] = useState<string>("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [password, setPassword] = useState<string>("");
+  const inputRef = React.useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    if (pin.length === 4 && !isSubmitting) {
-      setIsSubmitting(true);
-      onComplete(pin);
-    } else if (pin.length < 4) {
-      setIsSubmitting(false);
-    }
-  }, [pin, onComplete, isSubmitting]);
+    // Focus input on mount to fix hydration issues with autoFocus attribute
+    inputRef.current?.focus();
+  }, []);
 
   useEffect(() => {
-    if (error && pin.length === 4) {
+    if (error) {
       const timer = setTimeout(() => {
-        setPin("");
-      }, 500);
+        setPassword("");
+      }, 800);
       return () => clearTimeout(timer);
     }
-  }, [error, pin.length]);
+  }, [error]);
 
-  const handleKeyPress = (num: string) => {
-    if (pin.length < 4) {
-      setPin((prev) => prev + num);
+  const handleSubmit = (e?: React.FormEvent) => {
+    e?.preventDefault();
+    if (password.trim()) {
+      onComplete(password.toLowerCase());
     }
   };
 
-  const handleBackspace = () => {
-    setPin((prev) => prev.slice(0, -1));
-  };
+  const clear = () => setPassword("");
+  const back = () => setPassword(prev => prev.slice(0, -1));
 
   return (
-    <div className="flex flex-col items-center gap-8">
-      {/* PIN Dots */}
-      <div className="flex gap-4">
-        {[0, 1, 2, 3].map((index) => (
-          <motion.div
-            key={index}
-            animate={error && pin.length === 4 ? { x: [-5, 5, -5, 5, 0] } : {}}
-            transition={{ duration: 0.4 }}
+    <div className="flex flex-col items-center gap-6 w-full max-w-[320px] md:max-w-sm px-2 md:px-4" suppressHydrationWarning>
+      <form onSubmit={handleSubmit} className="w-full relative">
+        <motion.div
+          animate={error ? { x: [-10, 10, -10, 10, 0] } : {}}
+          transition={{ duration: 0.4 }}
+          className="relative"
+        >
+          <input
+            ref={inputRef}
+            type="text"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Type password..."
+            suppressHydrationWarning
             className={cn(
-              "w-4 h-4 rounded-full border-2 border-pink-soft transition-all duration-300",
-              pin.length > index ? "bg-pink-base scale-125 shadow-[0_0_10px_rgba(190,18,60,0.35)]" : "bg-transparent"
+              "w-full h-14 md:h-16 px-6 bg-white/50 backdrop-blur-md rounded-3xl border-2 transition-all duration-300 text-center text-lg md:text-xl font-cardo text-pink-deep placeholder:text-pink-soft/40 outline-none",
+              error ? "border-rose-400 shadow-[0_0_20px_rgba(251,113,133,0.3)]" : "border-pink-light focus:border-pink-base focus:shadow-[0_10px_30px_rgba(190,18,60,0.1)]"
             )}
           />
-        ))}
-      </div>
+        </motion.div>
+      </form>
 
-      {/* Numpad */}
-      <div className="grid grid-cols-3 gap-4">
-        {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((num) => (
-          <motion.button
-            key={num}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            onClick={() => handleKeyPress(num.toString())}
-            className="w-16 h-16 rounded-full bg-white/50 backdrop-blur-sm border border-pink-light flex items-center justify-center text-2xl font-bold text-pink-deep hover:bg-pink-light/50 transition-colors"
-          >
-            {num}
-          </motion.button>
-        ))}
-        <button className="w-16 h-16" /> {/* Placeholder */}
+      <div className="grid grid-cols-3 gap-2 md:gap-3 w-full">
         <motion.button
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          onClick={() => handleKeyPress("0")}
-          className="w-16 h-16 rounded-full bg-white/50 backdrop-blur-sm border border-pink-light flex items-center justify-center text-2xl font-bold text-pink-deep hover:bg-pink-light/50 transition-colors"
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          onClick={clear}
+          className="h-12 md:h-14 rounded-2xl bg-white/40 border border-pink-light text-pink-deep font-alice text-xs md:text-sm uppercase tracking-wider hover:bg-pink-light/20 transition-all font-bold"
         >
-          0
+          Clear
         </motion.button>
         <motion.button
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          onClick={handleBackspace}
-          className="w-16 h-16 rounded-full flex items-center justify-center text-pink-soft hover:text-pink-deep transition-colors"
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          onClick={back}
+          className="h-12 md:h-14 rounded-2xl bg-white/40 border border-pink-light text-pink-deep flex items-center justify-center hover:bg-pink-light/20 transition-all font-alice text-xs md:text-sm uppercase tracking-wider font-bold"
         >
-          <Heart className="w-8 h-8 fill-current" />
+          Cut
+        </motion.button>
+        <motion.button
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          onClick={() => handleSubmit()}
+          className="h-12 md:h-14 rounded-2xl bg-pink-base border border-pink-deep/20 text-white font-alice text-xs md:text-sm uppercase tracking-wider shadow-lg shadow-pink-base/20 hover:bg-pink-deep transition-all font-bold"
+        >
+          Enter
         </motion.button>
       </div>
     </div>
